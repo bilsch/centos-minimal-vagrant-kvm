@@ -1,4 +1,18 @@
 {
+  "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "data/root_setup.sh"
+      ],
+    },
+    {
+      "type": "shell",
+      "scripts": [
+        "data/setup.sh"
+      ]
+    }
+  ],
   "builders":
   [
     {
