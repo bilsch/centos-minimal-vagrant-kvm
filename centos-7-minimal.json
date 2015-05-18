@@ -11,6 +11,11 @@
       "scripts": [
         "data/setup.sh"
       ]
+    },
+    {
+      "type": "file",
+      "source": "data/sudoers",
+      "destination": "/tmp/sudoers"
     }
   ],
   "builders":
