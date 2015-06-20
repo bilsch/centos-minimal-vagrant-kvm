@@ -1,4 +1,7 @@
 {
+  "push": {
+      "name": "bilsch/centos7-minimal"
+  },
   "provisioners": [
     {
       "type": "shell",
@@ -55,6 +58,14 @@
     {
       "type": "vagrant",
       "output": "bilsch-cent7-1503-01.box"
+    },
+    {
+      "type": "atlas",
+      "artifact": "bilsch/centos7-minimal-kvm",
+      "artifact_type": "libvirt.kvm",
+      "metadata": {
+        "created_at": "{{timestamp}}"
+      }
     }
   ]
 }
