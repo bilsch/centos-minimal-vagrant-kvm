@@ -98,6 +98,14 @@
       "metadata": {
         "created_at": "{{timestamp}}"
       }
+    },
+    {
+      "type": "atlas",
+      "artifact": "bilsch/centos7-minimal-kvm",
+      "artifact_type": "virtualbox.image",
+      "metadata": {
+        "created_at": "{{timestamp}}"
+      }
     }
   ]
 }
