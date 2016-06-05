@@ -25,8 +25,8 @@
         [ "-cpu", "host" ],
         [ "-smp", "cpus=2" ]
       ],
-      "iso_url": "http://mirror.oss.ou.edu/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1503-01.iso",
-      "iso_checksum": "7cf1ac8da13f54d6be41e3ccf228dc5bb35792f515642755ff4780d5714d4278",
+      "iso_url": "http://mirror.oss.ou.edu/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1511.iso",
+      "iso_checksum": "f90e4d28fa377669b2db16cbcb451fcb9a89d2460e3645993e30e137ac37d284",
       "iso_checksum_type": "sha256",
       "output_directory": "output_centos_tdhtest",
       "ssh_wait_timeout": "30s",
@@ -44,7 +44,7 @@
       "ssh_password": "changeme!",
       "ssh_port": 22,
       "ssh_wait_timeout": "90m",
-      "vm_name": "bilsch-cent7-1503-01",
+      "vm_name": "bilsch-cent7-1511",
       "net_device": "virtio-net",
       "disk_interface": "virtio",
       "boot_wait": "5s",
@@ -52,12 +52,44 @@
       [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-minimal-ks.cfg<enter><wait>"
       ]
+    },
+    {
+      "type": "virtualbox-iso",
+      "guest_os_type": "RedHat_64",
+      "vboxmanage": [
+        ["modifyvm", "{{.Name}}", "--memory", "1024"],
+        ["modifyvm", "{{.Name}}", "--cpus", "2"]
+      ],
+      "iso_url": "http://mirror.oss.ou.edu/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1511.iso",
+      "iso_checksum": "f90e4d28fa377669b2db16cbcb451fcb9a89d2460e3645993e30e137ac37d284",
+      "iso_checksum_type": "sha256",
+      "output_directory": "output_centos_tdhtest",
+      "ssh_wait_timeout": "30s",
+      "shutdown_command": "shutdown -P now",
+      "disk_size": 5000,
+      "format": "ovf",
+      "headless": true,
+      "http_directory": "httpdir",
+      "http_port_min": 10082,
+      "http_port_max": 10089,
+      "ssh_host_port_min": 2222,
+      "ssh_host_port_max": 2229,
+      "ssh_username": "root",
+      "ssh_password": "changeme!",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "90m",
+      "vm_name": "bilsch-cent7-1511",
+      "boot_wait": "5s",
+      "boot_command":
+      [
+        "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-minimal-ks.cfg<enter><wait>"
+      ]
     }
   ],
-  "post-processors": [ 
+  "post-processors": [
     {
       "type": "vagrant",
-      "output": "bilsch-cent7-1503-01.box"
+      "output": "bilsch-cent7-1511.box"
     },
     {
       "type": "atlas",

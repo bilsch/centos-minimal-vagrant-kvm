@@ -4,3 +4,4 @@ packer_cache
 *.hwm
 *.pwd
 *.pwi
+output_centos_tdhtest
